@@ -32,7 +32,9 @@ namespace MasterDetail.Core.ViewModel
             public RelayCommand RemovePersonCommand { get; set; }
             public ObservableCollection<Person> People { get; private set; }
             private Person _person;
-            public Person SelectedPerson { get { return _person; }
+            public Person SelectedPerson
+            {
+                get { return _person; }
                 set
                 {
                     var oldVal = _person;
@@ -59,7 +61,7 @@ namespace MasterDetail.Core.ViewModel
                 foreach (var person in people)
                     People.Add(person);
             }
-            
+
             private void UpdateList(PropertyChangedMessage<Person> obj)
             {
                 var person = obj.NewValue;
@@ -72,8 +74,10 @@ namespace MasterDetail.Core.ViewModel
                     People.Add(person);
                     _peopleService.SaveAllPeople(People.ToList());
                 }
-                //if found, and values changed, do an update
-                else {
+                //if found, do an update
+                else
+                {
+                    //TODO: This needs to be checked for first time load
                     observedPerson.FirstName = person.FirstName;
                     observedPerson.LastName = person.LastName;
                     observedPerson.Birthday = person.Birthday;

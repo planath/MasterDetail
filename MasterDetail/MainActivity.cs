@@ -67,8 +67,7 @@ namespace MasterDetail
         }
 
         private PeopleViewModel Vm => App.Locator.MainVm;
-        private ListView PeopleListView => FindViewById<ListView>(Resource.Id.PeopleListView);
+        private ListView PeopleListView => FindViewById<ListView>(Resource.Id.People);
         private Toolbar PeopleToolbar => FindViewById<Toolbar>(Resource.Id.PeopleToolbar);
     }
 }
-

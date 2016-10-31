@@ -145,7 +145,7 @@ namespace MasterDetail
 			public const int NameLabel = 2131165189;
 			
 			// aapt resource value: 0x7f070011
-			public const int PeopleListView = 2131165201;
+			public const int People = 2131165201;
 			
 			// aapt resource value: 0x7f070000
 			public const int PeopleToolbar = 2131165184;
