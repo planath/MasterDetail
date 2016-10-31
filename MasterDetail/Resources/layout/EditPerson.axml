@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <include
+      android:id="@+id/PeopleToolbar"
+      layout="@layout/toolbar" />
+  <EditText
+      android:id="@+id/EditPerson_FirstNameEditText"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="Vorname"
+      android:inputType="textCapWords" />
+  <EditText
+      android:id="@+id/EditPerson_LastNameEditText"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="Nachname"
+      android:inputType="textCapWords" />
+  <EditText
+      android:id="@+id/EditPerson_BirthdayEditText"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="Geburtsdateum (Format: 21.05.1992)"
+      android:inputType="date" />
+  <EditText
+      android:id="@+id/EditPerson_EmailEditText"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="Email Adresse"
+      android:inputType="textEmailAddress" />
+</LinearLayout>
