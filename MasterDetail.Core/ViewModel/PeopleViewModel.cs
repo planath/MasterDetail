@@ -22,7 +22,6 @@ namespace MasterDetail.Core.ViewModel
                 _navigationService = navigationService;
                 _peopleService = peopleService;
                 AddPersonCommand = new RelayCommand(AddPerson);
-                RemovePersonCommand = new RelayCommand(RemovePerson);
 
                 Messenger.Default.Register<PropertyChangedMessage<Person>>(this, UpdateList);
             }
@@ -95,12 +94,6 @@ namespace MasterDetail.Core.ViewModel
             {
                 var people = _peopleService.GetAllPeople();
                 return people;
-            }
-
-            private void RemovePerson()
-            {
-                if (!People.Any()) return;
-                People.Remove(People.Last());
             }
 
             private void AddPerson()

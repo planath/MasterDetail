@@ -18,7 +18,6 @@ namespace MasterDetail
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             SetActionBar(PeopleToolbar);
-            ActionBar.Title = "Kontakte";
 
             Vm.Init();
             PeopleListView.Adapter = Vm.People.GetAdapter(GetPersonView);
