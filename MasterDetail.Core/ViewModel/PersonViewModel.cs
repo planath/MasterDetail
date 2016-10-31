@@ -18,7 +18,8 @@ namespace MasterDetail.Core.ViewModel
         {
             _navigationService = navigationService;
             _peopleService = peopleService;
-            EditPersonCommand = new RelayCommand(() => _navigationService.NavigateTo("Edit"));
+            SavePersonCommand = new RelayCommand(SaveChanges);
+            RemovePersonCommand = new RelayCommand(RemovePerson);
             NavigateBackCommand = new RelayCommand(() => _navigationService.GoBack());
             Messenger.Default.Register<PropertyChangedMessage<Person>>(this, SetPerson);
         }
@@ -28,13 +29,14 @@ namespace MasterDetail.Core.ViewModel
             CurrentPerson = obj.NewValue;
         }
 
-        public RelayCommand EditPersonCommand { get; set; }
+        public RelayCommand SavePersonCommand { get; set; }
+        public RelayCommand RemovePersonCommand { get; set; }
         public RelayCommand NavigateBackCommand { get; set; }
 
 
         public Person CurrentPerson { get; set; }
         public string BirthdayString { get { return CurrentPerson.Birthday.ToString(); } set { CurrentPerson.Birthday = DateTime.Parse(value);} }
-        //public bool EditMode { get; set; }
+
         public void Init()
         {
             Person person;
@@ -51,6 +53,14 @@ namespace MasterDetail.Core.ViewModel
         private void SaveChanges()
         {
             RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
+            _navigationService.GoBack();
+        }
+
+        private void RemovePerson()
+        {
+            CurrentPerson.Delete = true;
+            RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
+            _navigationService.GoBack();
         }
     }
 }

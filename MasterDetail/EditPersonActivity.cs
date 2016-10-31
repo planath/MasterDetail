@@ -10,12 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
+using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.ViewModel;
 
 namespace MasterDetail
 {
     [Activity(Label = "EditPersonActivity")]
-    public class EditPersonActivity : Activity
+    public class EditPersonActivity : ActivityBase
     {
         private Binding<string, string> _pageTitleBinding;
         private Binding<string, string> _firstNameBinding;
@@ -27,7 +28,6 @@ namespace MasterDetail
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AddPerson);
-            SetActionBar(PeopleToolbar);
             Vm.Init();
             
             // Bindings
@@ -63,7 +63,7 @@ namespace MasterDetail
         }
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.TitleFormatted.ToString().Equals("Close"))
+            if (item.TitleFormatted.ToString().Equals("Cancel"))
             {
                 Vm.NavigateBackCommand.Execute("");
             }

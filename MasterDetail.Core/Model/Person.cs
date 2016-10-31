@@ -14,7 +14,7 @@ namespace MasterDetail.Core.Model
         private string _lastName;
         private string _email;
         private DateTime _birthday;
-        private bool _favourite;
+        private bool _delete;
 
         [JsonConstructor]
         public Person(int id, string firstName, string lastName, string email, DateTime birthday)
@@ -29,7 +29,7 @@ namespace MasterDetail.Core.Model
             _lastName = lastName;
             _email = email;
             _birthday = birthday;
-            _favourite = false;
+            _delete = false;
         }
 
         // Constructor with id = null should only be used to creat new person from within app
@@ -43,7 +43,7 @@ namespace MasterDetail.Core.Model
             _lastName = lastName;
             _email = email;
             _birthday = birthday;
-            _favourite = false;
+            _delete = false;
         }
 
         public string Name { get { return _firstName + " " + _lastName; }
@@ -66,7 +66,7 @@ namespace MasterDetail.Core.Model
         public string LastName { get { return _lastName; } set { _lastName = value; } }
         public string Email { get { return _email; } set { _email = value; } }
         public DateTime Birthday { get { return _birthday; } set { _birthday = value; } }
-        public bool Favourite { get { return _favourite; } set { _favourite = value; } }
+        public bool Delete { get { return _delete; } set { _delete = value; } }
         public int CompareTo(object obj)
         {
             Person person = obj as Person;

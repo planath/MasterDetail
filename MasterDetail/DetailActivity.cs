@@ -54,13 +54,13 @@ namespace MasterDetail.Resources.layout
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.TitleFormatted.ToString().Equals("Close"))
+            if (item.TitleFormatted.ToString().Equals("Save"))
             {
-                Vm.NavigateBackCommand.Execute("");
+                Vm.SavePersonCommand.Execute("");
             }
-            else if (item.TitleFormatted.ToString().Equals("Edit"))
+            else if (item.TitleFormatted.ToString().Equals("Delete"))
             {
-                Vm.NavigateBackCommand.Execute("");
+                Vm.RemovePersonCommand.Execute("");
             }
             return base.OnOptionsItemSelected(item);
         }

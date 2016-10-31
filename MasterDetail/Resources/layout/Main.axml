@@ -3,25 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <!--<LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        
-    </LinearLayout>-->
   <include
       android:id="@+id/PeopleToolbar"
       layout="@layout/toolbar" />
-  <Button
-      android:id="@+id/AddButton"
-      android:layout_width="40dp"
-      android:layout_height="40dp"
-      android:text="+" />
-  <Button
-      android:id="@+id/RemoveButton"
-      android:layout_width="40dp"
-      android:layout_height="40dp"
-      android:text="×" />
   <ListView
       android:minWidth="25px"
       android:minHeight="25px"

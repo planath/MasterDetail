@@ -5,9 +5,6 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-  <include
-      android:id="@+id/PeopleToolbar"
-      layout="@layout/toolbar" />
     <TextView
         android:text="Name"
         android:textAppearance="?android:attr/textAppearanceSmall"

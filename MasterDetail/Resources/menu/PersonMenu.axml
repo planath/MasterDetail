@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item
-       android:id="@+id/MenuClose"
+       android:id="@+id/MenuDelete"
        android:showAsAction="ifRoom"
-       android:title="Cancel" />
+       android:title="Delete" />
   <item
-       android:id="@+id/MenuEdit"
+       android:id="@+id/MenuSave"
        android:showAsAction="always"
-       android:title="Edit" />
+       android:title="Save" />
 </menu>

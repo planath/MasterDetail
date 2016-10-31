@@ -78,9 +78,6 @@ namespace MasterDetail
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07000f
-			public const int AddButton = 2131165199;
-			
 			// aapt resource value: 0x7f070003
 			public const int AddPerson_BirthdayEditText = 2131165187;
 			
@@ -111,8 +108,8 @@ namespace MasterDetail
 			// aapt resource value: 0x7f07000c
 			public const int EditPerson_LastNameEditText = 2131165196;
 			
-			// aapt resource value: 0x7f070013
-			public const int Email = 2131165203;
+			// aapt resource value: 0x7f070011
+			public const int Email = 2131165201;
 			
 			// aapt resource value: 0x7f07000a
 			public const int EmailEditText = 2131165194;
@@ -120,23 +117,23 @@ namespace MasterDetail
 			// aapt resource value: 0x7f070009
 			public const int EmailLabel = 2131165193;
 			
-			// aapt resource value: 0x7f070016
-			public const int MenuAdd = 2131165206;
-			
 			// aapt resource value: 0x7f070014
-			public const int MenuClose = 2131165204;
-			
-			// aapt resource value: 0x7f070018
-			public const int MenuEdit = 2131165208;
-			
-			// aapt resource value: 0x7f070017
-			public const int MenuPreferences = 2131165207;
-			
-			// aapt resource value: 0x7f070015
-			public const int MenuSave = 2131165205;
+			public const int MenuAdd = 2131165204;
 			
 			// aapt resource value: 0x7f070012
-			public const int Name = 2131165202;
+			public const int MenuClose = 2131165202;
+			
+			// aapt resource value: 0x7f070016
+			public const int MenuDelete = 2131165206;
+			
+			// aapt resource value: 0x7f070015
+			public const int MenuPreferences = 2131165205;
+			
+			// aapt resource value: 0x7f070013
+			public const int MenuSave = 2131165203;
+			
+			// aapt resource value: 0x7f070010
+			public const int Name = 2131165200;
 			
 			// aapt resource value: 0x7f070006
 			public const int NameEditText = 2131165190;
@@ -144,14 +141,11 @@ namespace MasterDetail
 			// aapt resource value: 0x7f070005
 			public const int NameLabel = 2131165189;
 			
-			// aapt resource value: 0x7f070011
-			public const int People = 2131165201;
+			// aapt resource value: 0x7f07000f
+			public const int People = 2131165199;
 			
 			// aapt resource value: 0x7f070000
 			public const int PeopleToolbar = 2131165184;
-			
-			// aapt resource value: 0x7f070010
-			public const int RemoveButton = 2131165200;
 			
 			static Id()
 			{

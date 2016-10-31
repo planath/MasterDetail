@@ -74,15 +74,20 @@ namespace MasterDetail.Core.ViewModel
                     People.Add(person);
                     _peopleService.SaveAllPeople(People.ToList());
                 }
+                //if found and delete flag set
+                else if (person.Delete)
+                {
+                    People.Remove(observedPerson);
+                    _peopleService.SaveAllPeople(People.ToList());
+                }
                 //if found, do an update
                 else
                 {
-                    //TODO: This needs to be checked for first time load
                     observedPerson.FirstName = person.FirstName;
                     observedPerson.LastName = person.LastName;
                     observedPerson.Birthday = person.Birthday;
                     observedPerson.Email = person.Email;
-                    observedPerson.Favourite = person.Favourite;
+                    observedPerson.Delete = person.Delete;
                     _peopleService.SaveAllPeople(People.ToList());
                 }
             }
