@@ -9,6 +9,8 @@ namespace MasterDetail.Core.Service
         List<Person> GetAllPeople();
         Person PersonById(int id);
         void SaveAllPeople(List<Person> list);
-        void SavePerson(Person person);
+        void RemovePerson(Person person);
+        void AddPerson(Person person);
+        void UpdatePerson(Person person);
     }
 }

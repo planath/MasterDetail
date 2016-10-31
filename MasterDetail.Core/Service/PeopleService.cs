@@ -28,29 +28,35 @@ namespace MasterDetail.Core.Service
         {
             _peopleRepo.Post(list);
         }
-        /// <summary>
-        /// Updates a anlready existing Person if its id is already present in the persistet list or add a new person
-        /// </summary>
-        /// <param name="person">Person object that needs its values to be persisted after update or a new Person object that shall be added (This Person should not have an ID defined!).</param>
-        public void SavePerson(Person person)
+
+        public void RemovePerson(Person person)
         {
             var allPeople = _peopleRepo.Retrieve();
-            if (person.Id == null)
-            {
-                allPeople.Add(person);
-            }
-            else
-            {
-                var id = person.Id.Value;
-                var personToUpdate = _peopleRepo.FindById(id);
+            var observedPerson = allPeople.FirstOrDefault(i => i.Id == person.Id);
+            allPeople.Remove(observedPerson);
+            SaveAllPeople(allPeople.ToList());
+        }
 
-                var index = allPeople.FindIndex(a => a.Id == personToUpdate.Id);
-                if (index != -1)
-                {
-                    allPeople[index] = person;
-                }
-            }
-            _peopleRepo.Post(allPeople);
+        public void AddPerson(Person person)
+        {
+            var allPeople = _peopleRepo.Retrieve();
+            var personHighestId = allPeople.Max(p => p.Id);
+            var newId = personHighestId + 1;
+            person.Id = newId.Value;
+            allPeople.Add(person);
+            SaveAllPeople(allPeople.ToList());
+        }
+        public void UpdatePerson(Person person)
+        {
+            var allPeople = _peopleRepo.Retrieve();
+            var observedPerson = allPeople.FirstOrDefault(i => i.Id == person.Id);
+            observedPerson.FirstName = person.FirstName;
+            observedPerson.LastName = person.LastName;
+            observedPerson.Birthday = person.Birthday;
+            observedPerson.Email = person.Email;
+            observedPerson.Delete = person.Delete;
+
+            SaveAllPeople(allPeople.ToList());
         }
     }
 }

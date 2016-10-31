@@ -65,30 +65,30 @@ namespace MasterDetail.Core.ViewModel
             private void UpdateList(PropertyChangedMessage<Person> obj)
             {
                 var person = obj.NewValue;
-                var observedPerson = People.FirstOrDefault(i => i.Id == person.Id);
 
-                //add person if not in list
-                if (observedPerson == null)
+                //add person if new to persist
+                if (person.Id == null)
                 {
-                    person.Id = People.Count + 1;
                     People.Add(person);
-                    _peopleService.SaveAllPeople(People.ToList());
+                    _peopleService.AddPerson(person);
                 }
                 //if found and delete flag set
                 else if (person.Delete)
                 {
-                    People.Remove(observedPerson);
-                    _peopleService.SaveAllPeople(People.ToList());
+                    People.Remove(person);
+                    _peopleService.RemovePerson(person);
                 }
                 //if found, do an update
                 else
                 {
+                    var observedPerson = People.FirstOrDefault(i => i.Id == person.Id);
                     observedPerson.FirstName = person.FirstName;
                     observedPerson.LastName = person.LastName;
                     observedPerson.Birthday = person.Birthday;
                     observedPerson.Email = person.Email;
                     observedPerson.Delete = person.Delete;
-                    _peopleService.SaveAllPeople(People.ToList());
+
+                    _peopleService.UpdatePerson(person);
                 }
             }
             private IEnumerable<Person> InitPeopleList()
