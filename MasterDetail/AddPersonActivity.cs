@@ -74,7 +74,7 @@ namespace MasterDetail
             }
             else if (item.TitleFormatted.ToString().Equals("Save"))
             {
-                Vm.NavigateBackCommand.Execute("");
+                Vm.SavePersonCommand.Execute("");
             }
             return base.OnOptionsItemSelected(item);
         }

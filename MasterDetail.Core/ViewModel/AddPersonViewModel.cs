@@ -42,7 +42,7 @@ namespace MasterDetail.Core.ViewModel
                 !string.IsNullOrEmpty(Email))
             {
                 var person = new Person(FirstName, LastName, Email, new DateTime());
-                const string newPerson = "NewPerson";
+                const string newPerson = "Person";
                 RaisePropertyChanged(newPerson, null, person, true);
                 NavigateBackCommand.Execute("");
             }
