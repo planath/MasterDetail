@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using MasterDetail.Core.Model;
-using MasterDetail.Core.Repo;
 
 namespace MasterDetail.Core.Service
 {

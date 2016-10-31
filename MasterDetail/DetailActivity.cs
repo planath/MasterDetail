@@ -1,4 +1,3 @@
-using System;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -7,7 +6,6 @@ using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.ViewModel;
-using Microsoft.Practices.ServiceLocation;
 
 namespace MasterDetail.Resources.layout
 {

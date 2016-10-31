@@ -1,10 +1,8 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.Model;
-using MasterDetail.Core.Service;
 
 namespace MasterDetail.Core.ViewModel
 {

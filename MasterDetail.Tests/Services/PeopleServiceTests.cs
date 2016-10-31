@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MasterDetail.Core.Helper;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.Repo;
