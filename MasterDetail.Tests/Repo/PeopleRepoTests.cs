@@ -24,7 +24,6 @@ namespace MasterDetail.Tests.Repo
             Mock.Get(_fakeLocalPersistanceHelper).Setup(o => o.GetData())
                 .Returns(_jsonString);
             _repo = new PeopleRepo(_fakeLocalPersistanceHelper);
-
         }
 
         [Test]

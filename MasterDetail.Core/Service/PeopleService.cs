@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.Repo;
@@ -16,6 +17,33 @@ namespace MasterDetail.Core.Service
         public List<Person> GetAllPeople()
         {
             return _peopleRepo.Retrieve();
+        }
+        public List<Person> GetAllPeopleSortEmailDesc()
+        {
+            var people = GetAllPeople();
+            var result = people.OrderByDescending(person => person.Email);
+            return result.ToList();
+        }
+        public List<Person> GetAllPeopleSortLastFirstName()
+        {
+            var people = GetAllPeople();
+            var result = people.OrderBy(person => person.LastName)
+                .ThenBy(person => person.FirstName);
+            return result.ToList();
+        }
+        public List<Person> GetAllPeopleSortFirstLastName()
+        {
+            var people = GetAllPeople();
+            var result = people.OrderBy(person => person.FirstName)
+                .ThenBy(person => person.LastName);
+            return result.ToList();
+        }
+
+        public List<string> GetAllNames()
+        {
+            var people = GetAllPeople();
+            var query = people.Select(p => p.FirstName + ", " + p.LastName);
+            return query.ToList();
         }
         public Person PersonById(int id)
         {
