@@ -16,15 +16,23 @@ namespace MasterDetail.Core.Repo
             _localPersistanceHelper = localPersistanceHelper;
         }
 
-        public Person FindByName(string query)
+        public Person FindFirstByName(string query)
         {
             var list = Retrieve();
 
-            var result = from c in list
-                         where c.Name.Contains(query) | c.FirstName.Equals(query, StringComparison.OrdinalIgnoreCase) | c.LastName.Equals(query, StringComparison.OrdinalIgnoreCase)
-                         select c;
+            var result = list.FirstOrDefault(person => person.Name.Contains(query));
 
-            return result.First();
+            return result;
+        }
+        public Person FindSecondByName(string query)
+        {
+            var list = Retrieve();
+
+            var result = list.Where(person => person.Name.Contains(query))
+                            .Skip(1)
+                            .FirstOrDefault();
+
+            return result;
         }
         public Person FindByEmail(string query)
         {
