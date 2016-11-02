@@ -5,7 +5,11 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <TextView
+    <fragment class="MasterDetail.DetailFragment"
+              android:id="@+id/DetailFragment"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" />
+    <!--<TextView
         android:text="Name"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
@@ -43,5 +47,5 @@
         android:layout_height="wrap_content"
         android:text="muster@noser.com"
         android:hint="Email adresse"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress" />-->
 </LinearLayout>

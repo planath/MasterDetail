@@ -1,5 +1,10 @@
 ﻿using Foundation;
 using UIKit;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Threading;
+using GalaSoft.MvvmLight.Views;
+using MasterDetail.Core.Helper;
+using MasterDetail.Core.ViewModel;
 
 namespace MasterDetail.iOS
 {
@@ -25,6 +30,18 @@ namespace MasterDetail.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
+
+
+            // MVVM Light's DispatcherHelper for cross-thread handling.
+            DispatcherHelper.Initialize(application);
+            // Configure and register the MVVM Light NavigationService
+            var nav = new NavigationService();
+            SimpleIoc.Default.Register<INavigationService>(() => nav);
+            nav.Initialize((UINavigationController)Window.RootViewController);
+            nav.Configure("Detail", "DetailPage");
+
+            // Configure further dependancies
+            SimpleIoc.Default.Register<ILocalPersistanceHelper, LocalPersistanceHelper>();
 
             return true;
         }

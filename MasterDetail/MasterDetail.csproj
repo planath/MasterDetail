@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="DetailFragment.cs" />
     <Compile Include="EditPersonActivity.cs" />
     <Compile Include="Helper\LocalPersistanceHelper.cs" />
     <Compile Include="MainActivity.cs" />
@@ -90,6 +91,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\PersonMenu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\DetailFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

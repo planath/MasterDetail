@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Foundation;
+using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
 using UIKit;
 
 namespace MasterDetail.iOS
@@ -18,7 +19,8 @@ namespace MasterDetail.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            Vm.Init();
+            Title = Vm.People.FirstOrDefault().FirstName;
             // Perform any additional setup after loading the view, typically from a nib.
             NavigationItem.LeftBarButtonItem = EditButtonItem;
 
@@ -55,6 +57,25 @@ namespace MasterDetail.iOS
                 ((DetailViewController)segue.DestinationViewController).SetDetailItem(item);
             }
         }
+
+        private PeopleViewModel Vm
+        {
+            get
+            {
+                return Application.Locator.MainVm;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         class DataSource : UITableViewSource
         {
