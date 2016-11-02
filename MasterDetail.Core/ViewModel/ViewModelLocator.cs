@@ -15,11 +15,10 @@
 using GalaSoft.MvvmLight.Ioc;
 using MasterDetail.Core.Repo;
 using MasterDetail.Core.Service;
-using MasterDetail.Core.ViewModel;
 using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
 using Microsoft.Practices.ServiceLocation;
 
-namespace MasterDetail.ViewModel
+namespace MasterDetail.Core.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

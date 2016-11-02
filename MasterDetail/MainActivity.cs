@@ -21,6 +21,8 @@ namespace MasterDetail
 
             Vm.Init();
             PeopleListView.Adapter = Vm.People.GetAdapter(GetPersonView);
+            //PeopleListView.SetCommand("ItemClick", Vm.AddPersonCommand);
+            //PeopleToolbar.SetCommand("OptionsItemSelected", Vm.AddPersonCommand, "");
 
             PeopleListView.ItemClick += ListView_ItemClick;
         }

@@ -2,9 +2,9 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.Helper;
+using MasterDetail.Core.ViewModel;
 using MasterDetail.Helpers;
 using MasterDetail.Resources.layout;
-using MasterDetail.ViewModel;
 
 namespace MasterDetail
 {

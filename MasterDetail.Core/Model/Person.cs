@@ -83,5 +83,34 @@ namespace MasterDetail.Core.Model
         {
             return (Person)this.MemberwiseClone();
         }
+
+        protected bool Equals(Person other)
+        {
+            return _id == other._id && string.Equals(_firstName, other._firstName) && string.Equals(_lastName, other._lastName) && string.Equals(_email, other._email) && _birthday.Equals(other._birthday) && _delete == other._delete;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Person) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = _id.GetHashCode();
+                hashCode = (hashCode*397) ^ (_firstName != null ? _firstName.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (_lastName != null ? _lastName.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (_email != null ? _email.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ _birthday.GetHashCode();
+                hashCode = (hashCode*397) ^ _delete.GetHashCode();
+                return hashCode;
+            }
+        }
+
+
     }
 }
