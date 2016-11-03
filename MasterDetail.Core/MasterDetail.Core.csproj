@@ -45,7 +45,6 @@
     <Compile Include="Repo\PeopleRepo.cs" />
     <Compile Include="Service\IPeopleService.cs" />
     <Compile Include="Service\PeopleService.cs" />
-    <Compile Include="ViewModel\AddPersonViewModel.cs" />
     <Compile Include="ViewModel\PeopleViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

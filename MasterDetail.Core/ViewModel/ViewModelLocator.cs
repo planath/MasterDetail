@@ -53,7 +53,6 @@ namespace MasterDetail.Core.ViewModel
             // Register VMs
             SimpleIoc.Default.Register<PeopleViewModel>();
             SimpleIoc.Default.Register<PersonViewModel>();
-            SimpleIoc.Default.Register<AddPersonViewModel>();
 
             // Create Instance as Messenger retrevial needs to be registered
             var instanciate1 = DetailVm;
@@ -71,13 +70,6 @@ namespace MasterDetail.Core.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<PersonViewModel>();
-            }
-        }
-        public AddPersonViewModel AddPersonVm
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AddPersonViewModel>();
             }
         }
 
