@@ -11,11 +11,19 @@ using UIKit;
 
 namespace MasterDetail.iOS
 {
-    [Register ("MasterViewController")]
-    partial class MasterViewController
+    [Register ("PeopleTableViewController")]
+    partial class PeopleTableViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView PeopleTableView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (PeopleTableView != null) {
+                PeopleTableView.Dispose ();
+                PeopleTableView = null;
+            }
         }
     }
 }

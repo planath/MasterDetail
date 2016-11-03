@@ -38,7 +38,7 @@ namespace MasterDetail.iOS
             var nav = new NavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => nav);
             nav.Initialize((UINavigationController)Window.RootViewController);
-            nav.Configure("Detail", "SecondPage");
+            nav.Configure("Detail", "PersonDetail");
 
             // Configure further dependancies
             SimpleIoc.Default.Register<ILocalPersistanceHelper, LocalPersistanceHelper>();

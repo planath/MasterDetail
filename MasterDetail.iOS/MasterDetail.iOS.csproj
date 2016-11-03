@@ -87,8 +87,29 @@
     <Compile Include="Helper\LocalPersistanceHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PeopleListObservableTableSource.cs" />
+    <Compile Include="PeopleTableViewController.cs" />
+    <Compile Include="PeopleTableViewController.designer.cs">
+      <DependentUpon>PeopleTableViewController.cs</DependentUpon>
+    </Compile>
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
+    <Compile Include="PersonEditViewContainer.cs" />
+    <Compile Include="PersonEditViewContainer.designer.cs">
+      <DependentUpon>PersonEditViewContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonShowViewContainer.cs" />
+    <Compile Include="PersonShowViewContainer.designer.cs">
+      <DependentUpon>PersonShowViewContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonTableViewCell.cs" />
+    <Compile Include="PersonTableViewCell.designer.cs">
+      <DependentUpon>PersonTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonViewController.cs" />
+    <Compile Include="PersonViewController.designer.cs">
+      <DependentUpon>PersonViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -101,6 +122,48 @@
     <Compile Include="MasterViewController.designer.cs">
       <DependentUpon>MasterViewController.cs</DependentUpon>
     </Compile>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images0.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images0.imageset\journey0.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images0.imageset\journey0@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images0.imageset\journey0@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images1.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images1.imageset\journey1.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images1.imageset\journey1@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images1.imageset\journey1@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images2.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images2.imageset\journey2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images2.imageset\journey2@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Images2.imageset\journey2@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
