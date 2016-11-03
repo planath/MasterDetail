@@ -39,7 +39,7 @@ namespace MasterDetail.Core.ViewModel
                     var oldVal = _person;
                     _person = value;
                     _navigationService.NavigateTo("Detail");
-                    RaisePropertyChanged(nameof(SelectedPerson), oldVal, _person, true);
+                    RaisePropertyChanged("Person", oldVal, _person, true);
                 }
             }
 
@@ -64,23 +64,24 @@ namespace MasterDetail.Core.ViewModel
             private void UpdateList(PropertyChangedMessage<Person> obj)
             {
                 var person = obj.NewValue;
+                var observedPerson = People.FirstOrDefault(i => i.Id == person.Id);
 
                 //add person if new to persist
-                if (person.Id == null)
+                if (observedPerson == null && !string.IsNullOrEmpty(person.FirstName) && !string.IsNullOrEmpty(person.LastName) && !string.IsNullOrEmpty(person.Birthday.ToString()) &&
+                !string.IsNullOrEmpty(person.Email))
                 {
                     People.Add(person);
                     _peopleService.AddPerson(person);
                 }
                 //if found and delete flag set
-                else if (person.Delete)
+                if (person.Delete)
                 {
                     People.Remove(person);
                     _peopleService.RemovePerson(person);
                 }
                 //if found, do an update
-                else
+                else if (observedPerson != null)
                 {
-                    var observedPerson = People.FirstOrDefault(i => i.Id == person.Id);
                     observedPerson.FirstName = person.FirstName;
                     observedPerson.LastName = person.LastName;
                     observedPerson.Birthday = person.Birthday;
@@ -98,7 +99,7 @@ namespace MasterDetail.Core.ViewModel
 
             private void AddPerson()
             {
-                _navigationService.NavigateTo("Add");
+                SelectedPerson = new Person();
             }
         }
     }

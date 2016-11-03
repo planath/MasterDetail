@@ -41,7 +41,6 @@ namespace MasterDetail
             var navigationService = new NavigationService();
             navigationService.Configure("Detail", typeof(DetailActivity));
             navigationService.Configure("Add", typeof(AddPersonActivity));
-            navigationService.Configure("Edit", typeof(EditPersonActivity));
 
             return navigationService;
         }

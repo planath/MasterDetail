@@ -64,12 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="DetailFragment.cs" />
-    <Compile Include="EditPersonActivity.cs" />
+    <Compile Include="PersonEditFragment.cs" />
+    <Compile Include="PersonShowFragment.cs" />
     <Compile Include="Helper\LocalPersistanceHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="DetailActivity.cs" />
     <Compile Include="AddPersonActivity.cs" />
+    <Compile Include="PersonAddFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,13 +88,13 @@
     <AndroidResource Include="Resources\layout\AddPerson.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\EditPerson.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\menu\PersonMenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\DetailFragment.axml">
+    <AndroidResource Include="Resources\layout\PersonShowFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PersonEditFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -103,7 +104,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

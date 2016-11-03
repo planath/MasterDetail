@@ -17,40 +17,49 @@ namespace MasterDetail
         private Binding<string, string> _lastNameBinding;
         private Binding<string, string> _emailBinding;
         private Binding<string, string> _birthdayBinding;
+        private PersonShowFragment _fragment;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AddPerson);
-            SetActionBar(PeopleToolbar);
+            //SetActionBar(PeopleToolbar);
+
+
+            // create Fragments
+            _fragment = new PersonShowFragment();
+            var fragmentTransaction = FragmentManager.BeginTransaction();
+            fragmentTransaction.Add(Resource.Id.FragmentContainerPersonDetail, _fragment, "showDetailFragment");
+            fragmentTransaction.Commit();
+
+
             Vm.Init();
-
-            ActionBar.Title = "Hallo";
+            
             // Bindings
-            _pageTitleBinding = this.SetBinding(
-                () => Vm.PageTitle,
-                () => ActionBar.Title,
-                BindingMode.TwoWay);
+            //_pageTitleBinding = this.SetBinding(
+            //    () => Vm.PageTitle,
+            //    () => ActionBar.Title,
+            //    BindingMode.TwoWay);
 
-            _firstNameBinding = this.SetBinding(
-                () => Vm.FirstName,
-                () => FirstNameEditText.Text,
-                BindingMode.TwoWay);
+            //_firstNameBinding = this.SetBinding(
+            //    () => Vm.FirstName,
+            //    () => FirstNameEditText.Text,
+            //    BindingMode.TwoWay);
 
-            _lastNameBinding = this.SetBinding(
-                () => Vm.LastName,
-                () => LastNameEditText.Text,
-                BindingMode.TwoWay);
+            //_lastNameBinding = this.SetBinding(
+            //    () => Vm.LastName,
+            //    () => LastNameEditText.Text,
+            //    BindingMode.TwoWay);
 
-            _birthdayBinding = this.SetBinding(
-                () => Vm.Birthday,
-                () => BirthdayEditText.Text,
-                BindingMode.TwoWay);
+            //_birthdayBinding = this.SetBinding(
+            //    () => Vm.Birthday,
+            //    () => BirthdayEditText.Text,
+            //    BindingMode.TwoWay);
 
-            _emailBinding = this.SetBinding(
-                () => Vm.Email,
-                () => EmailEditText.Text,
-                BindingMode.TwoWay);
+            //_emailBinding = this.SetBinding(
+            //    () => Vm.Email,
+            //    () => EmailEditText.Text,
+            //    BindingMode.TwoWay);
         }
 
 
@@ -75,9 +84,9 @@ namespace MasterDetail
 
         private AddPersonViewModel Vm => App.Locator.AddPersonVm;
         private Toolbar PeopleToolbar => FindViewById<Toolbar>(Resource.Id.PeopleToolbar);
-        private EditText FirstNameEditText => FindViewById<EditText>(Resource.Id.AddPerson_FirstNameEditText);
-        private EditText LastNameEditText => FindViewById<EditText>(Resource.Id.AddPerson_LastNameEditText);
-        private EditText EmailEditText => FindViewById<EditText>(Resource.Id.AddPerson_EmailEditText);
-        private EditText BirthdayEditText => FindViewById<EditText>(Resource.Id.AddPerson_BirthdayEditText);
+        //private EditText FirstNameEditText => FindViewById<EditText>(Resource.Id.AddPerson_FirstNameEditText);
+        //private EditText LastNameEditText => FindViewById<EditText>(Resource.Id.AddPerson_LastNameEditText);
+        //private EditText EmailEditText => FindViewById<EditText>(Resource.Id.AddPerson_EmailEditText);
+        //private EditText BirthdayEditText => FindViewById<EditText>(Resource.Id.AddPerson_BirthdayEditText);
     }
 }

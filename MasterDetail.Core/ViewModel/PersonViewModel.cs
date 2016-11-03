@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -26,7 +25,8 @@ namespace MasterDetail.Core.ViewModel
 
         private void SetPerson(PropertyChangedMessage<Person> obj)
         {
-            CurrentPerson = obj.NewValue;
+            var person = obj.NewValue;
+            CurrentPerson = person;
         }
 
         public RelayCommand SavePersonCommand { get; set; }
@@ -35,26 +35,41 @@ namespace MasterDetail.Core.ViewModel
 
 
         public Person CurrentPerson { get; set; }
-        public string BirthdayString { get { return CurrentPerson.Birthday.ToString(); } set { CurrentPerson.Birthday = DateTime.Parse(value);} }
+        public string BirthdayString { get { return CurrentPerson.Birthday.ToString(); } set { CurrentPerson.Birthday = DateTime.Now;} }
 
         public void Init()
         {
-            Person person;
-            // Id should be set from PropertyChangedMessage
-            // if not, fallback to first person
-            if (CurrentPerson == null)
-            {
-                // TODO: Rather setup an empty constructor for Person and
-                // show a dialogbox informing, that person was not found
-                person = _peopleService.GetAllPeople().First();
-            }
+            //Person person;
+            //// Id should be set from PropertyChangedMessage
+            //// if not, fallback to first person
+            //if (CurrentPerson == null)
+            //{
+            //    // TODO: Rather setup an empty constructor for Person and
+            //    // show a dialogbox informing, that person was not found
+            //    person = _peopleService.GetAllPeople().First();
+            //}
         }
 
         private void SaveChanges()
         {
             RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
-            _navigationService.GoBack();
+            //// Person was edited
+            //if (CurrentPerson.Id != null)
+            //{
+            //    RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
+            //}
+            //// Person was newly created (just pass it back to main observer list, saving should be there.)
+            //else if (!string.IsNullOrEmpty(CurrentPerson.FirstName) && !string.IsNullOrEmpty(CurrentPerson.LastName) && !string.IsNullOrEmpty(CurrentPerson.Birthday.ToString()) &&
+            //    !string.IsNullOrEmpty(CurrentPerson.Email))
+            //{
+            //    var person = new Person(CurrentPerson.FirstName, CurrentPerson.LastName, CurrentPerson.Email, new DateTime());
+            //    const string newPerson = "Person";
+            //    RaisePropertyChanged(newPerson, null, person, true);
+            //}
+
+            //_navigationService.GoBack();
         }
+
 
         private void RemovePerson()
         {

@@ -2,11 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item
-       android:id="@+id/MenuDelete"
+       android:id="@+id/PersonMenuDelete"
        android:showAsAction="ifRoom"
        android:title="Delete" />
   <item
-       android:id="@+id/MenuSave"
+       android:id="@+id/PersonMenuSave"
        android:showAsAction="always"
        android:title="Save" />
+  <item
+       android:id="@+id/PersonMenuEdit"
+       android:showAsAction="always"
+       android:title="Edit" />
 </menu>

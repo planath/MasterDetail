@@ -76,11 +76,14 @@ namespace MasterDetail.Core.Service
         {
             var allPeople = _peopleRepo.Retrieve();
             var observedPerson = allPeople.FirstOrDefault(i => i.Id == person.Id);
-            observedPerson.FirstName = person.FirstName;
-            observedPerson.LastName = person.LastName;
-            observedPerson.Birthday = person.Birthday;
-            observedPerson.Email = person.Email;
-            observedPerson.Delete = person.Delete;
+            if (observedPerson != null)
+            {
+                observedPerson.FirstName = person.FirstName;
+                observedPerson.LastName = person.LastName;
+                observedPerson.Birthday = person.Birthday;
+                observedPerson.Email = person.Email;
+                observedPerson.Delete = person.Delete;
+            }
 
             SaveAllPeople(allPeople.ToList());
         }

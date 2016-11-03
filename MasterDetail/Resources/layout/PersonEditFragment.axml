@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#0B90BD">
+    <TextView
+        android:text="Firstame"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FirstameLabel" />
+    <EditText
+        android:id="@+id/FirstameEditFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Firstame"
+        android:inputType="textCapWords" />
+    <TextView
+        android:text="Lastname"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LastnameLabel" />
+    <EditText
+        android:id="@+id/LastnameEditFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lastname"
+        android:inputType="textCapWords" />
+    <TextView
+        android:text="Birthday"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BirthdayLabel" />
+    <EditText
+        android:id="@+id/BirthdayEditFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Geburtsdatum"
+        android:inputType="date" />
+    <TextView
+        android:text="Email"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EmailLabel" />
+    <EditText
+        android:id="@+id/EmailEditFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email adresse"
+        android:inputType="textEmailAddress" />
+</LinearLayout>

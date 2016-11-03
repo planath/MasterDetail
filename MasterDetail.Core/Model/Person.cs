@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace MasterDetail.Core.Model
@@ -15,6 +12,10 @@ namespace MasterDetail.Core.Model
         private string _email;
         private DateTime _birthday;
         private bool _delete;
+
+        public Person()
+        { 
+        }
 
         [JsonConstructor]
         public Person(int id, string firstName, string lastName, string email, DateTime birthday)
