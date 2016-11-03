@@ -42,6 +42,16 @@ namespace MasterDetail.Core.ViewModel
                     RaisePropertyChanged("Person", oldVal, _person, true);
                 }
             }
+            private int _index;
+            public int CurrentIndex
+            {
+                get { return _index; }
+                set
+                {
+                    _index = value;
+                    SelectedPerson = People[value];
+                }
+            }
 
             //TODO: Simpler?
             public void Init()
