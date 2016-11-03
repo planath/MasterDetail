@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Foundation;
+using GalaSoft.MvvmLight.Helpers;
+using MasterDetail.Core.Model;
 using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
 using UIKit;
 
@@ -19,8 +22,6 @@ namespace MasterDetail.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            Vm.Init();
-            Title = Vm.People.FirstOrDefault().FirstName;
             // Perform any additional setup after loading the view, typically from a nib.
             NavigationItem.LeftBarButtonItem = EditButtonItem;
 
@@ -39,9 +40,12 @@ namespace MasterDetail.iOS
 
         void AddNewItem(object sender, EventArgs args)
         {
-            var rand = new Random();
-            char letter = (char)('A' + rand.Next(25));
-            dataSource.Objects.Insert(0, letter.ToString());
+            var firstName = RandomName(7);
+            var lastName = RandomName(5);
+            var email = RandomName(5).ToLower() + "@" + RandomName(3).ToLower() + ".ch";
+            var birthday = DateTime.Now.AddYears(-24);
+            var person = new Person(firstName, lastName, email, birthday);
+            dataSource.Objects.Add(person);
 
             using (var indexPath = NSIndexPath.FromRowSection(0, 0))
                 TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
@@ -58,39 +62,34 @@ namespace MasterDetail.iOS
             }
         }
 
-        private PeopleViewModel Vm
+        private string RandomName(int length)
         {
-            get
-            {
-                return Application.Locator.MainVm;
-            }
+            var rand = new Random();
+            char bigLetter = (char)('A' + rand.Next(26));
+            var smallLetters = string.Concat(Enumerable.Range(0, length - 1).Select(i => ((char)('a' + rand.Next(0, 26)))).ToList());
+
+            var name = bigLetter + smallLetters;
+            return name;
         }
-
-
-
-
-
-
-
-
-
-
-
 
         class DataSource : UITableViewSource
         {
             static readonly NSString CellIdentifier = new NSString("Cell");
-            readonly List<string> objects = new List<string>() {"Andreas", "Michael", "Mark"};
+            private ObservableCollection<Person> objects;
+            private readonly List<Binding> bindings = new List<Binding>();
             readonly MasterViewController controller;
 
             public DataSource(MasterViewController controller)
             {
                 this.controller = controller;
+                Vm.Init();
+                Objects = Vm.People;
             }
 
-            public IList<string> Objects
+            public ObservableCollection<Person> Objects
             {
                 get { return objects; }
+                set { objects = value; }
             }
 
             // Customize the number of sections in the table view.
@@ -109,7 +108,17 @@ namespace MasterDetail.iOS
             {
                 var cell = tableView.DequeueReusableCell(CellIdentifier, indexPath);
 
-                cell.TextLabel.Text = objects[indexPath.Row];
+                //bindings.Add(
+                //    this.SetBinding(
+                //      () => Vm.People[indexPath.Row].Name,
+                //      () => cell.TextLabel.Text));
+                //bindings.Add(
+                //    this.SetBinding(
+                //      () => Vm.People[indexPath.Row].Email,
+                //      () => cell.DetailTextLabel.Text));
+
+                cell.TextLabel.Text = Objects[indexPath.Row].Name ?? "";
+                cell.DetailTextLabel.Text = Objects[indexPath.Row].Email ?? "";
 
                 return cell;
             }
@@ -133,6 +142,7 @@ namespace MasterDetail.iOS
                     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
                 }
             }
+            private PeopleViewModel Vm => Application.Locator.MainVm;
         }
     }
 }
