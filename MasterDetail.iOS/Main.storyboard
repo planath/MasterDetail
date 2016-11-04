@@ -171,23 +171,28 @@
                             <containerView contentMode="scaleToFill" id="477" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="0.0" y="258" width="375" height="216"/>
                                 <connections>
-                                    <segue id="799" destination="682" kind="embed"/>
+                                    <segue id="1088" destination="682" kind="embed"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" id="527" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="0.0" y="257" width="375" height="218"/>
                                 <connections>
-                                    <segue id="660" destination="555" kind="embed"/>
+                                    <segue id="1155" destination="555" kind="embed"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="536" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" buttonType="roundedRect">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1027" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="309" y="219" width="46" height="30"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <action selector="EditToggleButton_TouchUpInside:" destination="442" id="537" eventType="touchUpInside"/>
-                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1028" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="255" y="219" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.23529411764705882" blue="0.066666666666666666" alpha="1"/>
+                                </state>
                             </button>
                         </subviews>
                         <constraints>
@@ -200,9 +205,10 @@
                     <connections>
                         <outlet property="persImageView" destination="457" id="name-outlet-457"/>
                         <outlet property="persName" destination="462" id="name-outlet-462"/>
-                        <outlet property="ContainerShow" destination="477" id="name-outlet-477"/>
-                        <outlet property="ContainerEdit" destination="527" id="name-outlet-527"/>
-                        <outlet property="EditToggleButton" destination="536" id="name-outlet-536"/>
+                        <outlet property="ContainerEdit" destination="477" id="name-outlet-477"/>
+                        <outlet property="ContainerShow" destination="527" id="name-outlet-527"/>
+                        <outlet property="deleteButton" destination="1028" id="name-outlet-1028"/>
+                        <outlet property="editButton" destination="1027" id="name-outlet-1027"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="444" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -455,9 +461,6 @@
         <image name="Images0" width="640" height="640"/>
         <image name="Images1" width="640" height="640"/>
         <image name="Images2" width="640" height="640"/>
-        <image name="Images/journey10.png" width="640" height="640"/>
-        <image name="Images/journey2.png" width="640" height="640"/>
-        <image name="Images/journey3.png" width="640" height="640"/>
         <image name="Images/journey4.png" width="640" height="640"/>
         <image name="Images/journey5.png" width="640" height="640"/>
         <image name="Images/journey6.png" width="640" height="640"/>

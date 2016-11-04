@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Foundation;
 using MasterDetail.Core.Helper;
 using MasterDetail.Core.Model;
 using Newtonsoft.Json;
@@ -8,9 +9,12 @@ namespace MasterDetail.iOS
 {
     internal class LocalPersistanceHelper : ILocalPersistanceHelper
     {
+        private const string UserDefaultsKey = "data";
         public void SaveData(string dataJson)
         {
-            Console.WriteLine("no persisting yet");
+            var defaults = NSUserDefaults.StandardUserDefaults;
+            defaults.SetString(dataJson, UserDefaultsKey);
+            defaults.Synchronize();
         }
 
         public string GetData()
@@ -20,6 +24,10 @@ namespace MasterDetail.iOS
 
         private List<Person> GetTestInstances()
         {
+            var defaults = NSUserDefaults.StandardUserDefaults;
+            var data = defaults.StringForKey(UserDefaultsKey);
+            //if (data != null) return data;
+
             return new List<Person>(){
                 new Person(1, "Andreas", "Plüss", "andi@qlu.ch", RandomDay()),
                 new Person(2, "Rudolf", "Rentiel", "rudddi@qlu.ch", RandomDay()),

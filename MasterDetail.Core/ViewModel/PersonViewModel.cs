@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.Service;
+using MasterDetail.Core.ViewModel.Helper;
 
 namespace MasterDetail.Core.ViewModel
 {
@@ -12,70 +13,87 @@ namespace MasterDetail.Core.ViewModel
     {
         private readonly INavigationService _navigationService;
         private readonly IPeopleService _peopleService;
+        private ViewMode _viewMode;
 
         public PersonViewModel(INavigationService navigationService, IPeopleService peopleService)
         {
             _navigationService = navigationService;
             _peopleService = peopleService;
-            SavePersonCommand = new RelayCommand(SaveChanges);
+            EditTogglePersonCommand = new RelayCommand(EditTogglePerson);
+            SavePersonCommand = new RelayCommand(SavePerson);
             RemovePersonCommand = new RelayCommand(RemovePerson);
             NavigateBackCommand = new RelayCommand(() => _navigationService.GoBack());
             Messenger.Default.Register<PropertyChangedMessage<Person>>(this, SetPerson);
         }
 
-        private void SetPerson(PropertyChangedMessage<Person> obj)
-        {
-            var person = obj.NewValue;
-            CurrentPerson = person;
-        }
 
+
+        #region Properties and Commands
+        public RelayCommand EditTogglePersonCommand { get; set; }
         public RelayCommand SavePersonCommand { get; set; }
         public RelayCommand RemovePersonCommand { get; set; }
+        public RelayCommand AddPersonCommand { get; set; }
         public RelayCommand NavigateBackCommand { get; set; }
-
-
         public Person CurrentPerson { get; set; }
-        public string BirthdayString { get { return CurrentPerson.Birthday.ToString(); } set { CurrentPerson.Birthday = DateTime.Now;} }
+        public string BirthdayString { get { return CurrentPerson.Birthday.ToString(); } set { CurrentPerson.Birthday = DateTime.Now; } }
 
+        public ViewMode CurrentViewMode
+        {
+            get { return _viewMode; }
+            set
+            {
+                if (!CurrentPerson.IsEmpty && value == ViewMode.Show)
+                {
+                    SavePerson();
+                }
+                if (_viewMode != value)
+                {
+                    RaisePropertyChanged("CurrentViewMode", _viewMode, value, true);
+                    _viewMode = value;
+                }
+            }
+        }
+        
+        #endregion
         public void Init()
         {
-            //Person person;
-            //// Id should be set from PropertyChangedMessage
-            //// if not, fallback to first person
-            //if (CurrentPerson == null)
-            //{
-            //    // TODO: Rather setup an empty constructor for Person and
-            //    // show a dialogbox informing, that person was not found
-            //    person = _peopleService.GetAllPeople().First();
-            //}
+            if (CurrentPerson.Id == null)
+            {
+                CurrentViewMode = ViewMode.Edit;
+            }
+            else
+            {
+                CurrentViewMode = ViewMode.Show;
+            }
         }
 
-        private void SaveChanges()
+        #region Internal functions
+        private void SavePerson()
         {
             RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
-            //// Person was edited
-            //if (CurrentPerson.Id != null)
-            //{
-            //    RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
-            //}
-            //// Person was newly created (just pass it back to main observer list, saving should be there.)
-            //else if (!string.IsNullOrEmpty(CurrentPerson.FirstName) && !string.IsNullOrEmpty(CurrentPerson.LastName) && !string.IsNullOrEmpty(CurrentPerson.Birthday.ToString()) &&
-            //    !string.IsNullOrEmpty(CurrentPerson.Email))
-            //{
-            //    var person = new Person(CurrentPerson.FirstName, CurrentPerson.LastName, CurrentPerson.Email, new DateTime());
-            //    const string newPerson = "Person";
-            //    RaisePropertyChanged(newPerson, null, person, true);
-            //}
-
-            //_navigationService.GoBack();
         }
-
-
         private void RemovePerson()
         {
             CurrentPerson.Delete = true;
             RaisePropertyChanged(nameof(CurrentPerson), null, CurrentPerson, true);
             _navigationService.GoBack();
         }
+        private void SetPerson(PropertyChangedMessage<Person> obj)
+        {
+            var person = obj.NewValue;
+            CurrentPerson = person;
+        }
+        private void EditTogglePerson()
+        {
+            if (CurrentViewMode == ViewMode.Show)
+            {
+                CurrentViewMode = ViewMode.Edit;
+            }
+            else
+            {
+                CurrentViewMode = ViewMode.Show;
+            }
+        }
+        #endregion
     }
 }

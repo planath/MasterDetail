@@ -77,8 +77,7 @@ namespace MasterDetail.Core.ViewModel
                 var observedPerson = People.FirstOrDefault(i => i.Id == person.Id);
 
                 //add person if new to persist
-                if (observedPerson == null && !string.IsNullOrEmpty(person.FirstName) && !string.IsNullOrEmpty(person.LastName) && !string.IsNullOrEmpty(person.Birthday.ToString()) &&
-                !string.IsNullOrEmpty(person.Email))
+                if (observedPerson == null && !person.IsEmpty)
                 {
                     People.Add(person);
                     _peopleService.AddPerson(person);

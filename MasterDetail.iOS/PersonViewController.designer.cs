@@ -24,7 +24,11 @@ namespace MasterDetail.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton EditToggleButton { get; set; }
+        UIKit.UIButton deleteButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton editButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -33,10 +37,6 @@ namespace MasterDetail.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel persName { get; set; }
-
-        [Action ("EditToggleButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void EditToggleButton_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -50,9 +50,14 @@ namespace MasterDetail.iOS
                 ContainerShow = null;
             }
 
-            if (EditToggleButton != null) {
-                EditToggleButton.Dispose ();
-                EditToggleButton = null;
+            if (deleteButton != null) {
+                deleteButton.Dispose ();
+                deleteButton = null;
+            }
+
+            if (editButton != null) {
+                editButton.Dispose ();
+                editButton = null;
             }
 
             if (persImageView != null) {

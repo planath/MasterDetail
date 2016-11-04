@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using System;
+using System.ComponentModel;
 using GalaSoft.MvvmLight.Helpers;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
@@ -7,12 +8,11 @@ using UIKit;
 
 namespace MasterDetail.iOS
 {
-    public partial class PeopleTableViewController : UITableViewController
+    public partial class PeopleTableViewController : UITableViewController, INotifyPropertyChanged
     {
         public PeopleTableViewController (IntPtr handle) : base (handle)
         {
         }
-
 
         public override void ViewDidLoad()
         {
@@ -22,9 +22,13 @@ namespace MasterDetail.iOS
             AddButton = new UIBarButtonItem(UIBarButtonSystemItem.Add);
             NavigationItem.SetRightBarButtonItem(AddButton, false);
             AddButton.Clicked += (sender, args) => { };
-            AddButton.SetCommand("Clicked", Vm.AddPersonCommand);
 
             // bindings
+            AddButton.SetCommand("Clicked", Vm.AddPersonCommand);
+            _currentIndexBinding = this.SetBinding(
+                () => CurrentIndex,
+                () => Vm.CurrentIndex);
+
             source = Vm.People.GetTableViewSource(
                  CreateTaskCell,
                  BindTaskCell,
@@ -32,21 +36,29 @@ namespace MasterDetail.iOS
 
             PeopleTableView.Source = source;
             PeopleTableView.Delegate = this;
-
-
-            // TODO: ask => no event -> no data change on VM?
-            _currentIndexBinding = this.SetBinding(
-                () => CurrentIndex,
-                () => Vm.CurrentIndex);
-
-
-            //PeopleTableView.RowHeight = UITableView.AutomaticDimension;
-            //PeopleTableView.EstimatedRowHeight = 4f;
             PeopleTableView.RowHeight = 185;
             PeopleTableView.ReloadData();
         }
 
-        public int CurrentIndex { get; set; }
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            Vm.Init();
+        }
+
+        private int _currentIndex;
+        public int CurrentIndex
+        {
+            get
+            {
+                return _currentIndex;
+            }
+            set
+            {
+                _currentIndex = value;
+                OnPropertyChanged("CurrentIndex");
+            }
+        }
 
         public UIBarButtonItem AddButton {  get; private set; }
 
@@ -72,11 +84,23 @@ namespace MasterDetail.iOS
         public override NSIndexPath WillSelectRow(UITableView tableView, NSIndexPath indexPath)
         {
             CurrentIndex = indexPath.Row;
-            // TODO: solve better through fired event on CurrentIndex
-            Vm.SelectedPerson = Vm.People[CurrentIndex];
             return indexPath;
         }
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
         private ObservableTableViewSource<Person> source;
         private Binding<int, int> _currentIndexBinding;
         private PeopleViewModel Vm => Application.Locator.MainVm;

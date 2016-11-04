@@ -17,7 +17,6 @@ namespace MasterDetail.Core.Model
         { 
         }
 
-        [JsonConstructor]
         public Person(int id, string firstName, string lastName, string email, DateTime birthday)
         {
             if (id == null) throw new ArgumentNullException(nameof(id));
@@ -66,7 +65,7 @@ namespace MasterDetail.Core.Model
         public string FirstName { get { return _firstName; } set { _firstName = value; } }
         public string LastName { get { return _lastName; } set { _lastName = value; } }
         public string Email { get { return _email; } set { _email = value; } }
-        public DateTime Birthday { get { return _birthday; } set { _birthday = value; } }
+        public DateTime Birthday { get { return _birthday; } set { _birthday = RandomDay(); } }
         public bool Delete { get { return _delete; } set { _delete = value; } }
         public int CompareTo(object obj)
         {
@@ -112,6 +111,23 @@ namespace MasterDetail.Core.Model
             }
         }
 
-
+        public bool IsEmpty
+        {
+            get
+            {
+                return (this == null ||
+                    string.IsNullOrEmpty(FirstName) ||
+                    string.IsNullOrEmpty(LastName) ||
+                    string.IsNullOrEmpty(Birthday.ToString()) ||
+                    string.IsNullOrEmpty(Email));
+            }
+        }
+        private DateTime RandomDay()
+        {
+            Random gen = new Random();
+            DateTime start = new DateTime(1992, 1, 1);
+            int range = (new DateTime(1999, 12, 12) - start).Days;
+            return start.AddDays(gen.Next(range));
+        }
     }
 }

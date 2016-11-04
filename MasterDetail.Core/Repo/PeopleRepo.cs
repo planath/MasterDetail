@@ -58,6 +58,7 @@ namespace MasterDetail.Core.Repo
         {
             // access device locally
             var jsonString = _localPersistanceHelper.GetData();
+            //jsonString = jsonString.Replace("\\\", "\\");
             return JsonConvert.DeserializeObject<List<Person>>(jsonString);
 
             // Access from self created test instances

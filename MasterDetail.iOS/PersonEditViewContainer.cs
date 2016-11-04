@@ -23,9 +23,7 @@ namespace MasterDetail.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-
-
+            
             // text bindings from vm to view
             _firstNameTextBinding = this.SetBinding(
                 () => Vm.CurrentPerson.FirstName,
@@ -46,22 +44,22 @@ namespace MasterDetail.iOS
             // event binding if update from view to vm
             _firstNameTextEditedBinding = this.SetBinding(
                 () => persEditFirstname.Text)
-                .ObserveSourceEvent("EditingDidEnd")
+                .ObserveSourceEvent("EditingChanged")
                 .WhenSourceChanges(() => Vm.CurrentPerson.FirstName = persEditFirstname.Text);
 
             _lastNameTextEditedBinding = this.SetBinding(
                 () => persEditLastname.Text)
-                .ObserveSourceEvent("EditingDidEnd")
+                .ObserveSourceEvent("EditingChanged")
                 .WhenSourceChanges(() => Vm.CurrentPerson.LastName = persEditLastname.Text);
 
             _emailTextEditedBinding = this.SetBinding(
                 () => persEditEmail.Text)
-                .ObserveSourceEvent("EditingDidEnd")
+                .ObserveSourceEvent("EditingChanged")
                 .WhenSourceChanges(() => Vm.CurrentPerson.Email = persEditEmail.Text);
 
             _birthdayTextEditedBinding = this.SetBinding(
                 () => persEditBirthday.Text)
-                .ObserveSourceEvent("EditingDidEnd")
+                .ObserveSourceEvent("EditingChanged")
                 .WhenSourceChanges(() => Vm.BirthdayString = persEditBirthday.Text);
         }
 
