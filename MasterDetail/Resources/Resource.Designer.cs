@@ -65,6 +65,39 @@ namespace MasterDetail
 			// aapt resource value: 0x7f020006
 			public const int Icon = 2130837510;
 			
+			// aapt resource value: 0x7f020007
+			public const int journey0 = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int journey1 = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int journey10 = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int journey2 = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int journey3 = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int journey4 = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int journey5 = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int journey6 = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int journey7 = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int journey8 = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int journey9 = 2130837521;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -78,74 +111,80 @@ namespace MasterDetail
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070009
-			public const int BirthdayEditFragment = 2131165193;
+			// aapt resource value: 0x7f07000b
+			public const int BirthdayEditFragment = 2131165195;
 			
-			// aapt resource value: 0x7f070008
-			public const int BirthdayLabel = 2131165192;
+			// aapt resource value: 0x7f07000a
+			public const int BirthdayLabel = 2131165194;
 			
-			// aapt resource value: 0x7f07000e
-			public const int BirthdayTextView = 2131165198;
+			// aapt resource value: 0x7f070010
+			public const int BirthdayTextView = 2131165200;
+			
+			// aapt resource value: 0x7f070001
+			public const int BlurredImage = 2131165185;
 			
 			// aapt resource value: 0x7f070000
 			public const int DetailFragmentContainer = 2131165184;
 			
-			// aapt resource value: 0x7f070011
-			public const int Email = 2131165201;
-			
-			// aapt resource value: 0x7f07000b
-			public const int EmailEditFragment = 2131165195;
-			
-			// aapt resource value: 0x7f07000a
-			public const int EmailLabel = 2131165194;
-			
-			// aapt resource value: 0x7f07000f
-			public const int EmailTextView = 2131165199;
-			
-			// aapt resource value: 0x7f070005
-			public const int FirstameEditFragment = 2131165189;
-			
-			// aapt resource value: 0x7f070004
-			public const int FirstameLabel = 2131165188;
-			
-			// aapt resource value: 0x7f070001
-			public const int FragmentContainerPersonDetail = 2131165185;
-			
-			// aapt resource value: 0x7f070007
-			public const int LastnameEditFragment = 2131165191;
-			
-			// aapt resource value: 0x7f070006
-			public const int LastnameLabel = 2131165190;
-			
-			// aapt resource value: 0x7f070010
-			public const int Name = 2131165200;
-			
-			// aapt resource value: 0x7f07000c
-			public const int NameLabel = 2131165196;
+			// aapt resource value: 0x7f070013
+			public const int Email = 2131165203;
 			
 			// aapt resource value: 0x7f07000d
-			public const int NameTextView = 2131165197;
+			public const int EmailEditFragment = 2131165197;
+			
+			// aapt resource value: 0x7f07000c
+			public const int EmailLabel = 2131165196;
+			
+			// aapt resource value: 0x7f070011
+			public const int EmailTextView = 2131165201;
+			
+			// aapt resource value: 0x7f070007
+			public const int FirstameEditFragment = 2131165191;
+			
+			// aapt resource value: 0x7f070006
+			public const int FirstameLabel = 2131165190;
 			
 			// aapt resource value: 0x7f070003
-			public const int People = 2131165187;
+			public const int FragmentContainerPersonDetail = 2131165187;
+			
+			// aapt resource value: 0x7f070009
+			public const int LastnameEditFragment = 2131165193;
+			
+			// aapt resource value: 0x7f070008
+			public const int LastnameLabel = 2131165192;
 			
 			// aapt resource value: 0x7f070012
-			public const int PeopleMenuAdd = 2131165202;
+			public const int Name = 2131165202;
 			
-			// aapt resource value: 0x7f070013
-			public const int PeopleMenuPreferences = 2131165203;
+			// aapt resource value: 0x7f07000e
+			public const int NameLabel = 2131165198;
 			
-			// aapt resource value: 0x7f070002
-			public const int PeopleToolbar = 2131165186;
+			// aapt resource value: 0x7f07000f
+			public const int NameTextView = 2131165199;
+			
+			// aapt resource value: 0x7f070005
+			public const int People = 2131165189;
 			
 			// aapt resource value: 0x7f070014
-			public const int PersonMenuDelete = 2131165204;
-			
-			// aapt resource value: 0x7f070016
-			public const int PersonMenuEdit = 2131165206;
+			public const int PeopleMenuAdd = 2131165204;
 			
 			// aapt resource value: 0x7f070015
-			public const int PersonMenuSave = 2131165205;
+			public const int PeopleMenuPreferences = 2131165205;
+			
+			// aapt resource value: 0x7f070004
+			public const int PeopleToolbar = 2131165188;
+			
+			// aapt resource value: 0x7f070016
+			public const int PersonMenuDelete = 2131165206;
+			
+			// aapt resource value: 0x7f070018
+			public const int PersonMenuEdit = 2131165208;
+			
+			// aapt resource value: 0x7f070017
+			public const int PersonMenuSave = 2131165207;
+			
+			// aapt resource value: 0x7f070002
+			public const int TopImage = 2131165186;
 			
 			static Id()
 			{

@@ -12,6 +12,7 @@ namespace MasterDetail.Core.Model
         private string _email;
         private DateTime _birthday;
         private bool _delete;
+        private Color _color;
 
         public Person()
         { 

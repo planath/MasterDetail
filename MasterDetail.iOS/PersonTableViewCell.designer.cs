@@ -30,22 +30,6 @@ namespace MasterDetail.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel persName { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel PersonCellDescription { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel PersonCellEmailLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView PersonCellImageView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel PersonCellNameLabel { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
             if (bgImage != null) {
@@ -66,26 +50,6 @@ namespace MasterDetail.iOS
             if (persName != null) {
                 persName.Dispose ();
                 persName = null;
-            }
-
-            if (PersonCellDescription != null) {
-                PersonCellDescription.Dispose ();
-                PersonCellDescription = null;
-            }
-
-            if (PersonCellEmailLabel != null) {
-                PersonCellEmailLabel.Dispose ();
-                PersonCellEmailLabel = null;
-            }
-
-            if (PersonCellImageView != null) {
-                PersonCellImageView.Dispose ();
-                PersonCellImageView = null;
-            }
-
-            if (PersonCellNameLabel != null) {
-                PersonCellNameLabel.Dispose ();
-                PersonCellNameLabel = null;
             }
         }
     }

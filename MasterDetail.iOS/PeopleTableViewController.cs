@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using System;
 using System.ComponentModel;
+using CoreGraphics;
 using GalaSoft.MvvmLight.Helpers;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
@@ -38,6 +39,13 @@ namespace MasterDetail.iOS
             PeopleTableView.Delegate = this;
             PeopleTableView.RowHeight = 185;
             PeopleTableView.ReloadData();
+
+
+            // Add Important Message View
+            var importantMessage = ImportantMessageView.Create();
+            var importantMessageFrame = new CGRect(0, 0, View.Frame.Width, 50);
+            importantMessage.Frame = importantMessageFrame;
+            View.AddSubview(importantMessage);
         }
 
         public override void ViewWillAppear(bool animated)
@@ -60,7 +68,7 @@ namespace MasterDetail.iOS
             }
         }
 
-        public UIBarButtonItem AddButton {  get; private set; }
+        public UIBarButtonItem AddButton { get; private set; }
 
         private void BindTaskCell(UITableViewCell cell, Person person, NSIndexPath path)
         {

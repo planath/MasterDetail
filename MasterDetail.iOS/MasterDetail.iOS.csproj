@@ -85,6 +85,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helper\LocalPersistanceHelper.cs" />
+    <Compile Include="ImportantMessageView.cs" />
+    <Compile Include="ImportantMessageView.designer.cs">
+      <DependentUpon>ImportantMessageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="PeopleListObservableTableSource.cs" />
@@ -112,6 +116,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Resources\ImportantMessageView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DetailViewController.cs" />

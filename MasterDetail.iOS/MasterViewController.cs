@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using CoreGraphics;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using MasterDetail.Core.Model;
