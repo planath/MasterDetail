@@ -31,6 +31,15 @@ namespace MasterDetail
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010002
+			public const int backgroundSrc = 2130771970;
+			
+			// aapt resource value: 0x7f010001
+			public const int thumbnailSrc = 2130771969;
+			
+			// aapt resource value: 0x7f010000
+			public const int title = 2130771968;
+			
 			static Attribute()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -117,8 +126,8 @@ namespace MasterDetail
 			// aapt resource value: 0x7f07000a
 			public const int BirthdayLabel = 2131165194;
 			
-			// aapt resource value: 0x7f070010
-			public const int BirthdayTextView = 2131165200;
+			// aapt resource value: 0x7f070013
+			public const int BirthdayTextView = 2131165203;
 			
 			// aapt resource value: 0x7f070001
 			public const int BlurredImage = 2131165185;
@@ -126,8 +135,8 @@ namespace MasterDetail
 			// aapt resource value: 0x7f070000
 			public const int DetailFragmentContainer = 2131165184;
 			
-			// aapt resource value: 0x7f070013
-			public const int Email = 2131165203;
+			// aapt resource value: 0x7f070016
+			public const int Email = 2131165206;
 			
 			// aapt resource value: 0x7f07000d
 			public const int EmailEditFragment = 2131165197;
@@ -135,8 +144,8 @@ namespace MasterDetail
 			// aapt resource value: 0x7f07000c
 			public const int EmailLabel = 2131165196;
 			
-			// aapt resource value: 0x7f070011
-			public const int EmailTextView = 2131165201;
+			// aapt resource value: 0x7f070014
+			public const int EmailTextView = 2131165204;
 			
 			// aapt resource value: 0x7f070007
 			public const int FirstameEditFragment = 2131165191;
@@ -153,35 +162,44 @@ namespace MasterDetail
 			// aapt resource value: 0x7f070008
 			public const int LastnameLabel = 2131165192;
 			
+			// aapt resource value: 0x7f070015
+			public const int Name = 2131165205;
+			
+			// aapt resource value: 0x7f070011
+			public const int NameLabel = 2131165201;
+			
 			// aapt resource value: 0x7f070012
-			public const int Name = 2131165202;
-			
-			// aapt resource value: 0x7f07000e
-			public const int NameLabel = 2131165198;
-			
-			// aapt resource value: 0x7f07000f
-			public const int NameTextView = 2131165199;
+			public const int NameTextView = 2131165202;
 			
 			// aapt resource value: 0x7f070005
 			public const int People = 2131165189;
 			
-			// aapt resource value: 0x7f070014
-			public const int PeopleMenuAdd = 2131165204;
+			// aapt resource value: 0x7f070017
+			public const int PeopleMenuAdd = 2131165207;
 			
-			// aapt resource value: 0x7f070015
-			public const int PeopleMenuPreferences = 2131165205;
+			// aapt resource value: 0x7f070018
+			public const int PeopleMenuPreferences = 2131165208;
 			
 			// aapt resource value: 0x7f070004
 			public const int PeopleToolbar = 2131165188;
 			
-			// aapt resource value: 0x7f070016
-			public const int PersonMenuDelete = 2131165206;
+			// aapt resource value: 0x7f07000e
+			public const int PersonHeaderBackgorund = 2131165198;
 			
-			// aapt resource value: 0x7f070018
-			public const int PersonMenuEdit = 2131165208;
+			// aapt resource value: 0x7f07000f
+			public const int PersonHeaderThumbnail = 2131165199;
 			
-			// aapt resource value: 0x7f070017
-			public const int PersonMenuSave = 2131165207;
+			// aapt resource value: 0x7f070010
+			public const int PersonHeaderTitle = 2131165200;
+			
+			// aapt resource value: 0x7f070019
+			public const int PersonMenuDelete = 2131165209;
+			
+			// aapt resource value: 0x7f07001b
+			public const int PersonMenuEdit = 2131165211;
+			
+			// aapt resource value: 0x7f07001a
+			public const int PersonMenuSave = 2131165210;
 			
 			// aapt resource value: 0x7f070002
 			public const int TopImage = 2131165186;
@@ -209,13 +227,16 @@ namespace MasterDetail
 			public const int PersonEditFragment = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int PersonShowFragment = 2130903043;
+			public const int PersonHeader = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int RowItem = 2130903044;
+			public const int PersonShowFragment = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int toolbar = 2130903045;
+			public const int RowItem = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int toolbar = 2130903046;
 			
 			static Layout()
 			{
@@ -277,6 +298,33 @@ namespace MasterDetail
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] PersonHeader = new int[] {
+					2130771968,
+					2130771969,
+					2130771970};
+			
+			// aapt resource value: 2
+			public const int PersonHeader_backgroundSrc = 2;
+			
+			// aapt resource value: 1
+			public const int PersonHeader_thumbnailSrc = 1;
+			
+			// aapt resource value: 0
+			public const int PersonHeader_title = 0;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

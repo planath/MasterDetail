@@ -3,6 +3,7 @@ using System;
 using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.Renderscripts;
 using Android.Runtime;
 using Android.Util;
@@ -12,6 +13,9 @@ namespace MasterDetail.Resources.CustomView
 {
     public class BlurredImage : ImageView
     {
+        private Context _context;
+        private IAttributeSet _attrs;
+
         #region Constructors
 
         public BlurredImage(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
@@ -44,20 +48,28 @@ namespace MasterDetail.Resources.CustomView
 
         private void Init(Context context = null, IAttributeSet attrs = null)
         {
-            if (context != null && attrs != null)
+            _context = context;
+            if (attrs != null)
             {
                 int imageResource = attrs.GetAttributeResourceValue("http://schemas.android.com/apk/res/android", "src", 0);
-                var bitmap = GetDrawable(context.Resources, imageResource);
-                var blurredImage = BlurRenderScript(context, bitmap, 25);
-                var strongerBlurredImage = BlurRenderScript(context, blurredImage, 25);
+                ApplyBlur(imageResource);
+            }
+        }
+        
+        public void ApplyBlur(int imageResource)
+        {
+            if (_context != null)
+            {
+                var bitmap = GetDrawable(_context.Resources, imageResource);
+                var blurredImage = BlurRenderScript(_context, bitmap, 25);
+                var strongerBlurredImage = BlurRenderScript(_context, blurredImage, 25);
                 var lightenedImage = LightenBitmap(strongerBlurredImage);
-                var strongererBlurredImage = BlurRenderScript(context, lightenedImage, 25);
+                var strongererBlurredImage = BlurRenderScript(_context, lightenedImage, 25);
 
                 SetImageBitmap(strongererBlurredImage);
             }
-            
         }
-
+        
         /// <summary>
         /// transforms a bitmap and returns it blurred
         /// </summary>
@@ -116,6 +128,11 @@ namespace MasterDetail.Resources.CustomView
             return resultingImage;
         }
 
+        public override void SetImageResource(int resId)
+        {
+            base.SetImageResource(resId);
+            ApplyBlur(resId);
+        }
 
         public static Bitmap GetDrawable(Android.Content.Res.Resources res, int id)
         {

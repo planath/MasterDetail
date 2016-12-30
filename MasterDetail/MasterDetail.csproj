@@ -70,6 +70,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="DetailActivity.cs" />
     <Compile Include="Resources\CustomView\BlurredImage.cs" />
+    <Compile Include="Resources\CustomView\PersonHeader.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +91,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\PersonEditFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\attributes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PersonHeader.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
