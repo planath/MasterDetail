@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    card_view:cardCornerRadius="5dp"
+    android:layout_marginTop="9dp"
+    android:layout_marginRight="9dp"
+    android:layout_marginBottom="9dp"
+    android:layout_marginLeft="9dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <MasterDetail.Resources.CustomView.BlurredImage
+                android:id="@+id/PersonCardBackground"
+                android:src="@drawable/journey0"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                  android:layout_marginLeft="20dp"
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:id="@+id/PersonCardImage"
+                  android:src="@drawable/journey0"
+                  android:layout_height="wrap_content"
+                  android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:adjustViewBounds="true" />
+                <TextView
+                  android:id="@+id/PersonCardName"
+                  android:textSize="27dp"
+                  android:layout_height="40dp"
+                  android:layout_width="0dp"
+                  android:layout_weight="3"
+                  android:layout_gravity="center_vertical|center_horizontal"
+                  android:gravity="center_vertical|center_horizontal"
+                  android:fontFamily="sans-serif-light"
+                  android:textColor="#ff222222"
+                  android:text="" />
+            </LinearLayout>
+        </FrameLayout>
+
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+          <TextView
+              android:id="@+id/PersonCardFirstNameLabel"
+              android:text="Vorname"
+              android:textColor="#000"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+          <TextView
+              android:id="@+id/PersonCardFirstName"
+              android:text="Andreas"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:layout_marginLeft="10dp">
+          <TextView
+              android:id="@+id/PersonCardLastNameLabel"
+              android:text="Nachname"
+              android:textColor="#000"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+          <TextView
+              android:id="@+id/PersonCardLastName"
+              android:text="Andreas"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp" />
+        </LinearLayout>
+      </LinearLayout>
+        
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginLeft="10dp">
+          <TextView
+              android:id="@+id/PersonCardLastNameLabel"
+              android:text="Email"
+              android:textColor="#000"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+          <TextView
+              android:id="@+id/PersonCardEmail"
+              android:text="andreas@qlu.ch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp" />
+      </LinearLayout>
+      <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:background="#dedede">
+        <ImageButton
+            android:id="@+id/PersonCardDelete"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="34dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/button_border_right"
+            android:src="@drawable/trash"
+            android:tint="#ff3000"
+            android:text="delete" />
+        <ImageButton
+            android:id="@+id/PersonCardEdit"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="34dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/button_border_transparent"
+            android:src="@drawable/edit"
+            android:tint="#222222"
+            android:text="shoeditw" />
+      </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

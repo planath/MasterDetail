@@ -9,8 +9,8 @@ using MasterDetail.Core.ViewModel.mvvmlight.Core.ViewModel;
 
 namespace MasterDetail
 {
-    //[Activity(Label = "MasterDetail")]
-    [Activity(Label = "Personen", MainLauncher = true, Theme = "@style/AppTheme", Icon = "@drawable/icon")]
+    [Activity(Label = "MasterDetail")]
+    //[Activity(Label = "Personen", MainLauncher = true, Theme = "@style/AppTheme", Icon = "@drawable/icon")]
     public class MainActivity : ActivityBase
     {
         protected override void OnCreate(Bundle bundle)
