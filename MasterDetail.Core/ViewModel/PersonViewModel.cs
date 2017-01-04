@@ -26,8 +26,6 @@ namespace MasterDetail.Core.ViewModel
             Messenger.Default.Register<PropertyChangedMessage<Person>>(this, SetPerson);
         }
 
-
-
         #region Properties and Commands
         public RelayCommand EditTogglePersonCommand { get; set; }
         public RelayCommand SavePersonCommand { get; set; }

@@ -3,6 +3,13 @@
   <style name="AppTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowActionBar">false</item>
-    <item name="android:colorPrimary">#5A8622</item>
+    <item name="android:colorPrimary">#6E808F</item>
+    <item name="android:colorPrimaryDark">#46515B</item>
+    <item name="android:navigationBarColor">#46515B</item>
+    <item name="android:colorAccent">#3F83B6</item>3F83B6
+    <!-- Main theme colors
+    <item name="android:colorPrimary">@color/primary</item>
+    <item name="android:colorPrimaryDark">@color/primary_dark</item>
+    <item name="android:colorAccent">@color/accent</item> -->
   </style>
 </resources>

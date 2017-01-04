@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
     <MasterDetail.Resources.CustomView.BlurredImage
-        android:id="@+id/PersonHeaderBackgorund"
-        android:src="@drawable/journey0"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scaleType="centerCrop" />
+      android:id="@+id/PersonHeaderBackgorund"
+      android:src="@drawable/journey0"
+      android:layout_width="match_parent"
+      android:layout_height="195dp"
+      android:scaleType="centerCrop" />
     <LinearLayout
-        android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:layout_height="260dp">
+      
+      <TextView
+        android:id="@+id/PersonHeaderTitle"
+        android:textSize="38dp"
+        android:layout_height="130dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:fontFamily="sans-serif-thin"
+        android:textColor="#ff222222"
+        android:text="Contact details" />
+    
+      <FrameLayout
+        android:layout_height="130dp"
+        android:layout_width="130dp"
+        android:layout_gravity="center_vertical|center_horizontal">
         <ImageView
-            android:padding="20dp"
-            android:id="@+id/PersonHeaderThumbnail"
-            android:src="@drawable/journey0"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true" />
-        <TextView
-            android:id="@+id/PersonHeaderTitle"
-            android:textSize="24dp"
-            android:layout_height="40dp"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center_vertical|center_horizontal"
-            android:fontFamily="sans-serif-light"
-            android:textColor="#ff222222"
-            android:text="" />
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/PersonHeaderThumbnail"
+          android:src="@drawable/journey7"
+          android:adjustViewBounds="true"
+          android:background="@drawable/shape"/>
+      </FrameLayout>
+    
     </LinearLayout>
 </merge>

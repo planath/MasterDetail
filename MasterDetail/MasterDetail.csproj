@@ -91,6 +91,7 @@
     <Compile Include="DetailActivity.cs" />
     <Compile Include="Resources\CustomView\BlurredImage.cs" />
     <Compile Include="Resources\CustomView\PersonHeader.cs" />
+    <Compile Include="Resources\CustomView\RoundedCornerLayout.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -129,6 +130,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\button_border_transparent.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\shape.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\round_layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -41,6 +41,7 @@ namespace MasterDetail.Resources.CustomView
         }
         #endregion
 
+        public string Title { get { return _title.Text; } set { _title.Text = value; } }
         private void Init(Context context = null, IAttributeSet attrs = null)
         {
             var backgroundSrc = Resource.Drawable.journey7;
@@ -66,8 +67,11 @@ namespace MasterDetail.Resources.CustomView
 
                 _background.SetImageResource(backgroundSrc);
                 _thumbnail.SetImageResource(thumbnailSrc);
+                _thumbnail.ClipToOutline = true;
                 _title.Text = title;
             }
         }
+
+   
     }
 }

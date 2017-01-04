@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.Model;
 using MasterDetail.Core.Service;
+using MasterDetail.Core.ViewModel.Helper;
 
 namespace MasterDetail.Core.ViewModel
 {
@@ -24,6 +25,13 @@ namespace MasterDetail.Core.ViewModel
                 AddPersonCommand = new RelayCommand(AddPerson);
 
                 Messenger.Default.Register<PropertyChangedMessage<Person>>(this, UpdateList);
+                Messenger.Default.Register<GoToPageMessage>(this, GoToPerson);
+            }
+
+            private void GoToPerson(GoToPageMessage obj)
+            {
+                var person = People.First(p => p.Id == obj.PersonId);
+                SelectedPerson = person;
             }
 
             public RelayCommand<string> DetailsCommand { get; set; }

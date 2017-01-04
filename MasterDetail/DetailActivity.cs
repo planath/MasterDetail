@@ -5,6 +5,7 @@ using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Views;
 using MasterDetail.Core.ViewModel;
+using MasterDetail.Resources.CustomView;
 
 namespace MasterDetail.Resources.layout
 {
@@ -117,6 +118,9 @@ namespace MasterDetail.Resources.layout
 
         private void SetBindings()
         {
+            //bindings for PersonHeader
+            PersonHeader.Title = Vm.CurrentPerson.Name;
+
             //bindings for showFragment
             _personNameBinding = this.SetBinding(
                 () => Vm.CurrentPerson.Name,
@@ -156,6 +160,7 @@ namespace MasterDetail.Resources.layout
         }
 
         private PersonViewModel Vm => App.Locator.DetailVm;
+        private PersonHeader PersonHeader => FindViewById<PersonHeader>(Resource.Id.PersonHeader);
         private TextView BirthdayTextView => FindViewById<TextView>(Resource.Id.BirthdayTextView);
         private TextView EmailTextView => FindViewById<TextView>(Resource.Id.EmailTextView);
         private TextView NameTextView => FindViewById<TextView>(Resource.Id.NameTextView);

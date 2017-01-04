@@ -46,6 +46,7 @@
     <Compile Include="Repo\PeopleRepo.cs" />
     <Compile Include="Service\IPeopleService.cs" />
     <Compile Include="Service\PeopleService.cs" />
+    <Compile Include="ViewModel\Helper\GoToPageMessage.cs" />
     <Compile Include="ViewModel\Helper\ViewMode.cs" />
     <Compile Include="ViewModel\PeopleViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
